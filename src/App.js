@@ -1,13 +1,18 @@
-import React from 'react';
 import './App.css';
-import ApiTest from './components/ApiTest/ApiTest';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './Router/Router'
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      Hello in Our Movie Store!
-      <ApiTest />
-    </div>
+    
+    <BrowserRouter>
+      <Header />
+      
+      <div className="container my-5">
+        <Router />
+      </div>
+    </BrowserRouter>
   );
 }
 
