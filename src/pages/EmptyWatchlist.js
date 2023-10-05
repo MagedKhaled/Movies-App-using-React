@@ -1,5 +1,6 @@
 import Icon from '@mdi/react';
 import { mdiHeartOff } from '@mdi/js';
+import { Link } from 'react-router-dom';
 
 export default function EmptyWatchlist (){
 
@@ -9,7 +10,10 @@ export default function EmptyWatchlist (){
             <div className='row justify-content-center'>
             <Icon path={mdiHeartOff} size={15} className='text-light'/>
             <h4 className='text-center m-3 text-muted'>No Movies in watch list.</h4>
-            <div className='btn w-25' style={{"backgroundColor":"#ffe69c"}}>Back To Home</div>
+            <Link
+            to="/" 
+            className='btn w-25' 
+            style={{"backgroundColor":"#ffe69c"}}>Back To Home</Link>
             </div>
         </div>
     );
