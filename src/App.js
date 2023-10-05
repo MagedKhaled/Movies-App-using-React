@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Header />
       
-      <div className="container my-5">
+      <div className="m-5 my-5">
         <Router />
       </div>
     </BrowserRouter>
