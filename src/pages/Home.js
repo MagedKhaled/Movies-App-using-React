@@ -1,6 +1,5 @@
-import ApiTest from '../components/ApiTest/ApiTest'
 import MoviesList from '../components/MoviesList';
-import RoundedRate from '../components/roundedrate/RoundedRate';
+
 
 
 
