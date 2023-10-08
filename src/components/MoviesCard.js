@@ -15,9 +15,9 @@ export default function MoviesCard(props) {
   const watchListMovies = useSelector(
     (state) => state.watchlist
   );
-  const checkFavorits = watchListMovies.findIndex(
-    (movie)=>movie.id === movieData.id
-    )
+  // const checkFavorits = watchListMovies.findIndex(
+  //   (movie)=>movie.id === movieData.id
+  //   )
 
     const navigat = useNavigate()
 
