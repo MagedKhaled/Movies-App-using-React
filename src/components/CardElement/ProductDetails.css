@@ -1,0 +1,71 @@
+.cardContainer{
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    /* padding-top: 60px; */
+}
+
+.cardContainer2{
+    /* width: 300px; */
+    height: 800px;
+    padding: 20px;
+    /* border: none !important; */
+}
+
+.imageContainer{
+
+    
+    /* background-color: #e8e8e8 ; */
+}
+
+.imageContainer img{
+    border-radius: 20px;
+
+}
+
+
+
+
+.subIMagesContainer{
+    width: 100%;
+    /* overflow-x: scroll; */
+}
+
+.subIMages{
+
+    margin: 10px 6px;
+}
+
+.infoContainer{
+    width: 800px;
+    height: 600px;
+    /* padding-left: 40px; */
+}
+
+
+
+.buttonGroup{
+
+    margin-top: 30px;
+    display: flex;
+    justify-content:center;
+}
+.buttonGroup button{
+    width: 30%;
+    padding: 5px 20px;
+    margin-right:10px ;
+    border-radius: 20px;
+
+}
+
+.buyButton{
+    background-color: green;
+    color: white;
+}
+
+
+.addButton{
+    border-color: green;
+    background-color: white;
+}
+

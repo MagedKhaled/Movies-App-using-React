@@ -1,51 +1,40 @@
-import { axiosInstance } from '../../api/cong';
+import { gitDetailsApi } from '../../api/git_details';
 import { useEffect, useState } from "react";
 
 
 const ApiTest = () => {
 
-    const [movieList, setMovieList] = useState([]);
+    const [movie, setMovie] = useState({ 'title': '' });
 
     useEffect(() => {
-        axiosInstance
+        gitDetailsApi(5, 'dbcf1a6fa43698e1105aa2a820dca1bf')
             .get("", {
                 params: {
-                    api_key: "dbcf1a6fa43698e1105aa2a820dca1bf"
                 },
             })
-            .then((res) => setMovieList([...res.data.results]))
+            .then((res) => {
+                // console.log('res: ',res.data);
+                setMovie({ ...res.data });
+                console.log('mlist: ',movie);
+
+            })
             .catch((err) => console.log(err));
-            console.log(movieList)
-
-
-
     }, []);
 
 
 
 
+
+    // JSX to display movie details
     return (
-        <div >
-
-                {movieList.map((movie, index) => {
-                    return (
-                        <div>
-                            
-                            <h2>Movie Title: {movie.title}</h2>
-                            
-                            {Object.keys(movie).map((key,index2) => {
-                                return(
-                                <h5>{key}: {movie[key]} </h5>
-                                )
-                            })}
-                        </div>
-                        // <h1>{Object.keys(movie)}</h1>
-                    );
-                })}
+        <div>
+            <div>
+                <h2>Movie Title: {movie.title}</h2>
+                
             </div>
+        </div>
+    );
 
-
-    )
 }
 
 export default ApiTest

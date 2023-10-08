@@ -25,7 +25,7 @@ export default function MoviesCard(props) {
         
         <div className='row ms-1'>
             <div className='col-8'>
-            <h5 className="">{movieData.title}</h5>    
+            <a className="text-decoration-none text-black" href={`/details/${movieData.id}`}>{movieData.title}</a>    
             <h6 className="text-muted">{movieData.release_date}</h6>
             </div>
             <div className="col-2 fs-4">{<FontAwesomeIcon icon={faHeart} />}</div>

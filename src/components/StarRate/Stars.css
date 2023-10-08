@@ -1,0 +1,31 @@
+
+
+.ratings {
+    margin-right: 10px;
+}
+
+.ratings i {
+
+    color: #cecece;
+    font-size: 12px;
+}
+
+.ratingColor {
+    color: #fbc634 !important;
+}
+
+.reviewCount {
+    font-weight: 400;
+    margin-bottom: 2px;
+    font-size: 24px !important;
+}
+
+.smallRatings i {
+    color: #cecece;
+}
+
+.reviewStat {
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 2px;
+}

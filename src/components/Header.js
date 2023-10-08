@@ -15,6 +15,8 @@ export default function Header() {
             Movie App
           </NavLink>
 
+         
+
           <div className="d-flex">
             
             
@@ -25,10 +27,6 @@ export default function Header() {
             >
               <FontAwesomeIcon icon={faHeart} className="fs-5 me-2" />
               Watch list
-              {/* <span class="position-absolute top-0 start-100 translate-middle badge rounded bg-light text-dark">
-                {0}
-                <span class="visually-hidden">unread messages</span>
-              </span> */}
             </NavLink>
             <Link
               className="nav-link active"
