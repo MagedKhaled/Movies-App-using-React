@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import './ProductDetails.css'
 import Stars from "../StarRate/Stars";
 import { gitDetailsApi } from '../../api/git_details'
-import recommentaion from '../recommentation/recommentation'
+import recom from '../recommentation/recommentation'
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -84,7 +84,7 @@ export default function ProductDetails() {
 
         </div>
         <hr/>
-      <recommentaion/>
+          <div className="position-absolute buttom-0 z-axis-10000 w-100 h-100 "></div>
 
       </div>
 

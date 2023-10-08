@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../api/cong";
 import MoviesCard from "./MoviesCard";
-
+import SearchBar from "./searchBar";
 export default function MoviesList(){
     const [movies , setMovies] = useState([]);
 
@@ -20,6 +20,7 @@ export default function MoviesList(){
 
     return (
         <>
+        <SearchBar/>
           <div className="row row-cols-md-5 g-4">
             {movies.map((movie, index) => {
               return (

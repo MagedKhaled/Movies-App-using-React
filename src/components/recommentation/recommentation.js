@@ -1,10 +1,10 @@
 
-const recommentaion = () => {
+const recom = () => {
     return(
         <div>
-            Recommentaion:
+           <h1> Recommentaion: </h1>
         </div>
     )
 }
 
-export default recommentaion
+export default recom

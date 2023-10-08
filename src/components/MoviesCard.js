@@ -44,19 +44,21 @@ export default function MoviesCard(props) {
 
       <div className="row ms-1">
         <div className="col-8">
-          <h6 className="">{movieData.title.substring(0, 15)}</h6>
+          {/* <h6 className="">{movieData.title.substring(0, 15)}</h6> */}
+          <a className="text-decoration-none text-black" href={`/details/${movieData.id}`}>{movieData.title.substring(0, 15)}</a>  <br/>  
+
           <small className="text-muted">
             {getDate(movieData.release_date)}
           </small>
         </div>
         
-        <div className='row ms-1'>
+        {/* <div className='row ms-1'>
             <div className='col-8'>
             <a className="text-decoration-none text-black" href={`/details/${movieData.id}`}>{movieData.title}</a>    
             <h6 className="text-muted">{movieData.release_date}</h6>
             </div>
             <div className="col-2 fs-4">{<FontAwesomeIcon icon={faHeart} />}</div>
-        </div>
+        </div> */}
         
         
         

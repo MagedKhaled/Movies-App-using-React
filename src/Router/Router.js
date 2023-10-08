@@ -14,7 +14,7 @@ export default function Router(){
             <Route path="/" element={<Home/>} />
             <Route path="/Movies-App-using-React" element={<Home/>} />
             <Route path="/details/:id" element={<Details/>}/>
-            <Route path="/search" element={<Search/>}/>
+            <Route path="/search/:movieName" element={<Search/>}/>
             <Route path="/watchlist" element={<Watchlist/>} /> 
             <Route path="/*" element={<NotFound/>}/>
         </Routes>
