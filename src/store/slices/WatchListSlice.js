@@ -15,29 +15,26 @@ const watchList = createSlice({
                 (item) => item.id === action.payload.id
               );
               if(movieIndex >= 0){
-                state.watchListItems[movieIndex].isFavorit = false;
-                state.totalInWatchList--;
+                const nextWatchlist = state.watchListItems.filter(
+                  (movie) => movie.id !== action.payload.id
+                );
+              state.watchListItems = nextWatchlist;
+              if(state.totalInWatchList>0)
+                  state.totalInWatchList--;
                 
               }else{
-                const movie = {...action.payload , isFavorit : true}
-                state.watchListItems.push(movie);
+                state.watchListItems.push(action.payload);
                 state.totalInWatchList++;
               }
         },
-        removeFromWatchList:(state, action)=>{
-            const nextWatchlist = state.watchListItems.filter(
-                (movie) => movie.id !== action.payload.id
-              );
-            state.watchListItems = nextWatchlist;
-            state.totalInWatchList--;
-        },
+        
 
     }
 });
 
 export const {
     addToWatchList,
-    removeFromWatchList,
+    
 } = watchList.actions;
 
 export default watchList.reducer;

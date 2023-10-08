@@ -8,6 +8,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { addToWatchList } from "../../store/slices/WatchListSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
 
 export default function ProductDetails() {
@@ -15,9 +16,9 @@ export default function ProductDetails() {
   const {id} = useParams();
 
   const dispatch = useDispatch();
-  // const watchListMovies = useSelector(
-  //   (state) => state.watchlist.watchListItems
-  // );
+  const watchListMovies = useSelector(
+    (state) => state.watchlist.watchListItems
+  );
 
 
 
@@ -57,7 +58,19 @@ export default function ProductDetails() {
             // style={{ color: "#ffe69c" , backgroundColor: "#ffe69c"}}
             onClick={() => dispatch(addToWatchList(productDetails))}
           >
-            {<FontAwesomeIcon icon={faHeart} />}
+            {watchListMovies.some(
+                      (favoriteMovie) => favoriteMovie.id === productDetails.id
+                    ) ? (
+                      <Favorite
+                        sx={{ color: "#ffe69c" }}
+                        style={{ cursor: "pointer" }}
+                      />
+                    ) : (
+                      <FavoriteBorder
+                        sx={{ color: "black"}}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
           </div>
           {/* <div className="col-2 fs-4">{<FontAwesomeIcon icon={faHeart} />}</div> */}
           </div>
