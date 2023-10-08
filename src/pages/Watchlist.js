@@ -4,7 +4,8 @@ import { Rating } from "react-simple-star-rating";
 import StarRatings from "react-star-ratings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { removeFromWatchList } from "../store/slices/WatchListSlice";
+import { addToWatchList } from "../store/slices/WatchListSlice";
+
 
 export default function Watchlist() {
   const watchlist = useSelector((state) => state.watchlist.watchListItems);
@@ -39,7 +40,7 @@ export default function Watchlist() {
                         <div class="card-body">
                           <div className="row">
                           <h4 class="col-8 card-title fw-bold">{movie.title.substring(0, 15)}</h4>
-                          <FontAwesomeIcon icon={faHeart} className="col-2 fs-3 me-2" onClick={()=>dispatch(removeFromWatchList(movie))}/>
+                          <FontAwesomeIcon icon={faHeart} className="col-2 fs-3 me-2" onClick={()=>dispatch(addToWatchList(movie))}/>
                           </div>
                           <small className="text-muted">
                             {getDate(movie.release_date)}

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
-  const watchList = useSelector((state) => state.watchlist.watchListItems);
+  const watchList = useSelector((state) => state.watchlist);
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function Header() {
             >
               <FontAwesomeIcon icon={faHeart} className="fs-5 me-2" />
               Watch list
-              <span className="badge bg-light ms-2">{watchList.totalInWatchList}</span>
+              <span className="badge bg-light text-dark ms-2">{watchList.totalInWatchList}</span>
               {/* <span class="position-absolute top-0 start-100 translate-middle badge rounded bg-light text-dark">
                 {0}
                 <span class="visually-hidden">unread messages</span>
