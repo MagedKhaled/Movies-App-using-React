@@ -5,12 +5,12 @@ import StarRatings from "react-star-ratings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { addToWatchList } from "../store/slices/WatchListSlice";
-
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
 export default function Watchlist() {
   const watchlist = useSelector((state) => state.watchlist.watchListItems);
   const dispatch = useDispatch();
-//   console.log(watchlist);
+  //   console.log(watchlist);
   const getDate = (d) => {
     let date = new Date(d);
     return date.toDateString();
@@ -27,7 +27,10 @@ export default function Watchlist() {
             {watchlist.map((movie, index) => {
               return (
                 <>
-                  <div class="card mb-3 mx-4" style={{ maxWidth: "540px" , maxHeight:"280px" }}>
+                  <div
+                    class="card mb-3 mx-4"
+                    style={{ maxWidth: "540px", maxHeight: "280px" }}
+                  >
                     <div class="row g-0">
                       <div class="col-md-4">
                         <img
@@ -39,8 +42,17 @@ export default function Watchlist() {
                       <div class="col-md-8">
                         <div class="card-body">
                           <div className="row">
-                          <h4 class="col-8 card-title fw-bold">{movie.title.substring(0, 15)}</h4>
-                          <FontAwesomeIcon icon={faHeart} className="col-2 fs-3 me-2" onClick={()=>dispatch(addToWatchList(movie))}/>
+                            <h4 class="col-8 card-title fw-bold">
+                              {movie.title.substring(0, 15)}
+                            </h4>
+                            {/* <FontAwesomeIcon icon={faHeart} className="col-2 fs-3 me-2" onClick={()=>dispatch(addToWatchList(movie))}/> */}
+                            <div className="col-2">
+                            <Favorite
+                              sx={{ color: "#ffe69c" }}
+                              style={{ cursor: "pointer" }}
+                              onClick={()=>dispatch(addToWatchList(movie))}
+                            />
+                            </div>
                           </div>
                           <small className="text-muted">
                             {getDate(movie.release_date)}
@@ -52,12 +64,16 @@ export default function Watchlist() {
                               starDimension="20px"
                               numberOfStars={5}
                               name="rating"
-                            /> <small className="ms-3 fw-bold">{movie.vote_count}</small>
+                            />{" "}
+                            <small className="ms-3 fw-bold">
+                              {movie.vote_count}
+                            </small>
                           </div>
                           <hr />
 
-                          <small class="card-text">{movie.overview.substring(0, 200)}</small>
-                          
+                          <small class="card-text">
+                            {movie.overview.substring(0, 200)}
+                          </small>
                         </div>
                       </div>
                     </div>

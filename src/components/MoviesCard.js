@@ -5,21 +5,16 @@ import * as React from "react";
 
 import { addToWatchList } from "../store/slices/WatchListSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
 export default function MoviesCard(props) {
   const { movieData } = props;
   // console.log(movieData);
   const dispatch = useDispatch();
   const watchListMovies = useSelector(
-    (state) => state.watchlist.watchListItems
+    (state) => state.watchlist
   );
-  const checkFavorits = watchListMovies.findIndex(
-    (movie)=>movie.id === movieData.id
-    )
   
-
-  // console.log(watchListMovies.findIndex(movieData));
-
   const getDate = (d) => {
     let date = new Date(d);
     return date.toDateString();
@@ -52,24 +47,26 @@ export default function MoviesCard(props) {
             {getDate(movieData.release_date)}
           </small>
         </div>
-        
-        {/* <div className='row ms-1'>
-            <div className='col-8'>
-            <a className="text-decoration-none text-black" href={`/details/${movieData.id}`}>{movieData.title}</a>    
-            <h6 className="text-muted">{movieData.release_date}</h6>
-            </div>
-            <div className="col-2 fs-4">{<FontAwesomeIcon icon={faHeart} />}</div>
-        </div> */}
-        
-        
-        
-      
+   
           <div
             className="col-2 fs-2"
             // style={{ color: "#ffe69c" , backgroundColor: "#ffe69c"}}
             onClick={() => dispatch(addToWatchList(movieData))}
           >
-            {<FontAwesomeIcon icon={faHeart} />}
+            {/* {<FontAwesomeIcon icon={faHeart} />} */}
+            {watchListMovies.watchListItems.some(
+                      (favoriteMovie) => favoriteMovie.id === movieData.id
+                    ) ? (
+                      <Favorite
+                        sx={{ color: "#ffe69c" }}
+                        style={{ cursor: "pointer" }}
+                      />
+                    ) : (
+                      <FavoriteBorder
+                        sx={{ color: "black"}}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
           </div>
       </div>
     </div>
