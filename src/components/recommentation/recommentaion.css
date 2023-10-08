@@ -9,6 +9,7 @@
 
 
 .recomContainer div{
+    margin: 3px;
     width: 250px;
     padding: 5px;
 }

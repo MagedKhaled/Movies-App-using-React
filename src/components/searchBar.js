@@ -1,10 +1,19 @@
+import { useNavigate } from "react-router"
 
 
 const SearchBar = () => {
+
+    const navigat = useNavigate()
+
+    const handleNavigate = (url) =>{
+      navigat(url)
+    }
+
+
     const makeSearch = () => {
         const inputVal = document.getElementById('inpSearch')
         const movie = inputVal.value
-        window.location.href = `/search/${movie}`
+        handleNavigate(`/search/${movie}`)
 
 
     }
