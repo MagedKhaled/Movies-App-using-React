@@ -1,0 +1,19 @@
+.recomContainer{
+    /* height: 400px; */
+    /* width: 200px; */
+    display: flex;
+    flex-direction: row;
+    
+    overflow-x: scroll;
+}
+
+
+.recomContainer div{
+    width: 250px;
+    padding: 5px;
+}
+
+
+.recomContainer FontAwesomeIcon{
+    display: none;
+}

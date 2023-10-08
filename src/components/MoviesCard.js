@@ -28,6 +28,7 @@ export default function MoviesCard(props) {
   return (
     <div className="card border rounded ">
       <img
+        onClick={() => {window.location.href = `/details/${movieData.id}`}}
         src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`}
         className="card-img-top rounded position-relative"
       />
