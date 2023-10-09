@@ -10,19 +10,15 @@ import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
 export default function MoviesCard(props) {
   const { movieData } = props;
+  const navigate = useNavigate();
   // console.log(movieData);
   const dispatch = useDispatch();
   const watchListMovies = useSelector(
     (state) => state.watchlist
   );
-  // const checkFavorits = watchListMovies.findIndex(
-  //   (movie)=>movie.id === movieData.id
-  //   )
-
-    const navigat = useNavigate()
-
-    const handleNavigate = (url) =>{
-      navigat(url)
+  
+    const handleNavigate=(id)=>{
+          navigate(`/details/${id}`);
     }
   
   const getDate = (d) => {
@@ -33,9 +29,10 @@ export default function MoviesCard(props) {
   return (
     <div className="card border rounded ">
       <img
-        onClick={() => handleNavigate(`/details/${movieData.id}`)}
+        
         src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`}
         className="card-img-top rounded position-relative"
+        onClick={()=> handleNavigate(movieData.id)}
       />
       <div className="mx-4 my-3 position-relative">
         <CircularProgress
@@ -51,7 +48,7 @@ export default function MoviesCard(props) {
       <div className="row ms-1">
         <div className="col-8">
           {/* <h6 className="">{movieData.title.substring(0, 15)}</h6> */}
-          <a className="text-decoration-none text-black" href="#" onClick={() => handleNavigate(`/details/${movieData.id}`)}>{movieData.title.substring(0, 15)}</a>  <br/>  
+          <a className="text-decoration-none text-black" href="#" onClick={()=> handleNavigate(movieData.id)}>{movieData.title.substring(0, 15)}</a>  <br/>  
 
           <small className="text-muted">
             {getDate(movieData.release_date)}
