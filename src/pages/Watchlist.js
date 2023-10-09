@@ -3,15 +3,22 @@ import EmptyWatchlist from "../components/EmptyWatchlist";
 import StarRatings from "react-star-ratings";
 import { addToWatchList } from "../store/slices/WatchListSlice";
 import { Favorite } from "@mui/icons-material";
+import { useNavigate } from "react-router";
 
 export default function Watchlist() {
   const watchlist = useSelector((state) => state.watchlist.watchListItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   //   console.log(watchlist);
   const getDate = (d) => {
     let date = new Date(d);
     return date.toDateString();
   };
+
+  const handleNavigate = (id) => {
+    navigate(`/details/${id}`);
+  };
+
   return (
     <>
       {watchlist.length === 0 ? (
@@ -33,13 +40,17 @@ export default function Watchlist() {
                         <img
                           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                           class="img-fluid rounded mt-2 mb-2"
-                          alt="..."
+                          onClick={() => handleNavigate(movie.id)}
+                          style={{ cursor: "pointer" }}
                         />
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
                           <div className="row">
-                            <h4 class="col-8 card-title fw-bold">
+                            <h4 
+                            class="col-8 card-title fw-bold" 
+                            onClick={() => handleNavigate(movie.id)}
+                            style={{ cursor: "pointer" }}>
                               {movie.title.substring(0, 15)}
                             </h4>
                             {/* <FontAwesomeIcon icon={faHeart} className="col-2 fs-3 me-2" onClick={()=>dispatch(addToWatchList(movie))}/> */}
