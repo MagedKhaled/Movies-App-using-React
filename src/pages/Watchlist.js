@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import EmptyWatchlist from "../components/EmptyWatchlist";
-import { Rating } from "react-simple-star-rating";
 import StarRatings from "react-star-ratings";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { addToWatchList } from "../store/slices/WatchListSlice";
-import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { Favorite } from "@mui/icons-material";
 
 export default function Watchlist() {
   const watchlist = useSelector((state) => state.watchlist.watchListItems);
@@ -47,11 +44,11 @@ export default function Watchlist() {
                             </h4>
                             {/* <FontAwesomeIcon icon={faHeart} className="col-2 fs-3 me-2" onClick={()=>dispatch(addToWatchList(movie))}/> */}
                             <div className="col-2">
-                            <Favorite
-                              sx={{ color: "#ffe69c" }}
-                              style={{ cursor: "pointer" }}
-                              onClick={()=>dispatch(addToWatchList(movie))}
-                            />
+                              <Favorite
+                                sx={{ color: "#ffe69c" }}
+                                style={{ cursor: "pointer" }}
+                                onClick={() => dispatch(addToWatchList(movie))}
+                              />
                             </div>
                           </div>
                           <small className="text-muted">

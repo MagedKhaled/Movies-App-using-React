@@ -6,7 +6,8 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export default function Paginations(props) {
   return (
-    <div className="text-white"> {/* Add the text-white class */}
+    <div className="text-white">
+      {" "}
       <div className="d-flex justify-content-center mt-4 mb-5">
         <Pagination
           count={500}

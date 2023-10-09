@@ -10,7 +10,6 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch movie data when the component mounts
     fetchMovies();
   }, [currentPage]);
 
@@ -30,7 +29,7 @@ export default function Home() {
         navigate("/not-found");
       });
   };
-  console.log(movieList)
+  console.log(movieList);
   const totalPages = 500;
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -44,7 +43,7 @@ export default function Home() {
       <h2>Home</h2>
       <hr />
 
-      <MoviesList movies={movieList}/>
+      <MoviesList movies={movieList} />
       <Paginations
         className="bg-white"
         handlePageChange={handlePageChange}
